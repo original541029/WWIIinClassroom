@@ -1,0 +1,26 @@
+{
+  "name": "PKContact",
+  "short_name": "PKContact",
+  "start_url": "index.html",
+  "scope": "/index.html",
+  "display": "standalone",
+  "background_color": "#3367D6",
+  "theme_color": "#3367D6",
+  "orientation": "landscape",
+  "prefer_related_applications": false,
+  "description": "Example",
+  "icons": [
+    {
+      "src": "TemplateData/icon-145x145.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    },
+    {
+      "src": "TemplateData/icon-144x144.png",
+      "type": "image/png",
+      "sizes": "146x146",
+      "purpose": "maskable"
+    }
+  ]
+}
