@@ -93,16 +93,24 @@
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
         // config.devicePixelRatio = 1;
-
-        canvas.style.width = window.innerWidth + 'px';
-        canvas.style.height = window.innerHeight + 'px';
+        if (window.innerWidth < window.innerHeight) {
+          canvas.style.width = window.innerHeight + 'px';
+          canvas.style.height = window.innerWidth + 'px';
+        } else {
+          canvas.style.width = window.innerWidth + 'px';
+          canvas.style.height = window.innerHeight + 'px';
+        }
 
         unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-
-        canvas.style.width = '960px';
-        canvas.style.height = '600px';
+        if (window.innerWidth < window.innerHeight) {
+          canvas.style.width = window.innerHeight + 'px';
+          canvas.style.height = window.innerWidth + 'px';
+        } else {
+          canvas.style.width = window.innerWidth + 'px';
+          canvas.style.height = window.innerHeight + 'px';
+        }
       }
 
       loadingBar.style.display = 'block';
