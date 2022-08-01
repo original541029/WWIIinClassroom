@@ -1,24 +1,14 @@
 body {
   padding: 0;
   margin: 0;
-  height: 100vw;
-  width: 100vh;
-  overflow: hidden;
-  position: relative;
 }
 #unity-container {
-  position: fixed;
-  transform: rotate(90deg);
-  transform-origin: bottom left;
-  top: -100vw;
-  left: 0;
-  height: 100vw;
-  width: 100vh;
+  position: absolute;
 }
 #unity-container.unity-desktop {
-  /* left: 50%;
+  left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%); */
+  transform: translate(-50%, -50%);
 }
 #unity-container.unity-mobile {
   width: 100%;
@@ -88,8 +78,5 @@ body {
   transform: translate(-50%);
   background: white;
   padding: 10px;
-  display: none;
-}
-#unity-footer {
   display: none;
 }
