@@ -1,21 +1,30 @@
 @media screen and (orientation: portrait) {
   body {
     position: relative;
-    height: 100vw;
-    width: 100vh;
+
+    height: 100vh !important;
+    width: 100vw !important;
+  }
+  .canvas-box {
+    position: relative;
+    height: 100vw !important;
+    width: 100vh !important;
   }
   #unity-container {
-    position: absolute;
+    position: absolute !important;
     transform: rotate(90deg);
     transform-origin: bottom left;
     top: -100vw;
     left: 0;
-    height: 100vw;
-    width: 100vh;
+    height: 100vw !important;
+    width: 100vh !important;
   }
-}
-#unity-footer {
-  display: none;
+  canvas {
+    position: absolute;
+    left: 0;
+    height: 100vw !important;
+    width: 100vh !important;
+  }
 }
 body {
   padding: 0;

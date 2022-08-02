@@ -14,18 +14,20 @@
 
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width="960" height="600"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
+      <div class="canvas-box">
+        <canvas id="unity-canvas"></canvas>
+        <div id="unity-loading-bar">
+          <div id="unity-logo"></div>
+          <div id="unity-progress-bar-empty">
+            <div id="unity-progress-bar-full"></div>
+          </div>
         </div>
-      </div>
-      <div id="unity-warning"></div>
-      <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">webgltest</div>
+        <div id="unity-warning"></div>
+        <div id="unity-footer">
+          <div id="unity-webgl-logo"></div>
+          <div id="unity-fullscreen-button"></div>
+          <div id="unity-build-title">webgltest</div>
+        </div>
       </div>
     </div>
     <script>
@@ -85,32 +87,28 @@
 
         var meta = document.createElement('meta');
         meta.name = 'viewport';
-        meta.content =
-          'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        meta.content = `width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes`;
         document.getElementsByTagName('head')[0].appendChild(meta);
         container.className = 'unity-mobile';
 
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
-        if (window.innerWidth < window.innerHeight) {
-          canvas.style.width = window.innerHeight + 'px';
-          canvas.style.height = window.innerWidth + 'px';
-        } else {
-          canvas.style.width = window.innerWidth + 'px';
-          canvas.style.height = window.innerHeight + 'px';
-        }
 
+        // if (window.innerWidth < window.innerHeight) {
+
+        // } else {
+        config.devicePixelRatio = 1;
+        config.matchWebGLToCanvasSize = false;
+
+        // }
+        canvas.style.width = window.innerHeight + 'px';
+        // canvas.style.height = window.innerWidth / 2 + 'px';
+        // canvas.style.width = window.innerHeight / window.devicePixelRatio + 'px';
+        // canvas.style.height = window.innerWidth / window.devicePixelRatio + 'px';
         unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-        if (window.innerWidth < window.innerHeight) {
-          canvas.style.width = window.innerHeight + 'px';
-          canvas.style.height = window.innerWidth + 'px';
-        } else {
-          canvas.style.width = window.innerWidth + 'px';
-          canvas.style.height = window.innerHeight + 'px';
-        }
+        canvas.style.width = '960px';
+        canvas.style.height = '600px';
       }
 
       loadingBar.style.display = 'block';
@@ -118,6 +116,10 @@
       var script = document.createElement('script');
       script.src = loaderUrl;
       script.onload = () => {
+        // if (window.screen.orientation.type.includes('portrait')) {
+        //   container.style.transform = 'rotate(90deg)';
+        // }
+
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + '%';
         })
@@ -131,6 +133,7 @@
             alert(message);
           });
       };
+
       document.body.appendChild(script);
     </script>
     <script type="text/javascript" src="app.js"></script>
