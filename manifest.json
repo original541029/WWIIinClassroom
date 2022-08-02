@@ -9,15 +9,14 @@
   "orientation": "landscape",
   "prefer_related_applications": false,
   "description": "Example",
-  "icons": [
-    {
-      "src": "TemplateData/icon-145x145.png",
+  "icons": [{
+      "src": "TemplateData/unity-logo-dark.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
     },
     {
-      "src": "TemplateData/icon-144x144.png",
+      "src": "TemplateData/unity-logo-dark.png",
       "type": "image/png",
       "sizes": "146x146",
       "purpose": "maskable"
