@@ -32,6 +32,7 @@
       </div>
     </div>
     <script>
+      var unityBox = document.querySelector('.unity-box');
       var container = document.querySelector('#unity-container');
       var canvas = document.querySelector('#unity-canvas');
       var loadingBar = document.querySelector('#unity-loading-bar');
@@ -102,8 +103,8 @@
         // performance, uncomment the following line:
         // config.devicePixelRatio = 1;
         config.matchWebGLToCanvasSize = false;
-        canvas.style.width = baseWidth * minNumber + 'px';
-        canvas.style.height = baseHeight * minNumber + 'px';
+        unityBox.style.width = baseWidth * minNumber + 'px';
+        unityBox.style.height = baseHeight * minNumber + 'px';
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
         const minNumber = Math.min(
@@ -111,8 +112,8 @@
           Math.floor(window.innerHeight / baseHeight),
         );
         config.matchWebGLToCanvasSize = false;
-        canvas.style.width = baseWidth * minNumber + 'px';
-        canvas.style.height = baseHeight * minNumber + 'px';
+        unityBox.style.width = baseWidth * minNumber + 'px';
+        unityBox.style.height = baseHeight * minNumber + 'px';
         // canvas.style.height = window.innerHeight + 'px';
       }
 
