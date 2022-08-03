@@ -101,9 +101,6 @@
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
         // config.devicePixelRatio = 1;
-        window.screen.addEventListener('orientationchange', function () {
-          console.log('The orientation of the screen is: ' + screen.orientation);
-        });
         config.matchWebGLToCanvasSize = false;
         canvas.style.width = baseWidth * minNumber + 'px';
         canvas.style.height = baseHeight * minNumber + 'px';
