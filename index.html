@@ -14,7 +14,9 @@
 
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width="2160" height="1620"></canvas>
+      <div class="unity-box">
+        <canvas id="unity-canvas" width="2160" height="1620"></canvas>
+      </div>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -79,6 +81,8 @@
       // happening inside the engine, and you would instead like to size up
       // the canvas DOM size and WebGL render target sizes yourself.
       // config.matchWebGLToCanvasSize = false;
+      const baseWidth = 2160 / 12;
+      const baseHeight = 1620 / 12;
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
@@ -89,17 +93,28 @@
           'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
         document.getElementsByTagName('head')[0].appendChild(meta);
         container.className = 'unity-mobile';
-
+        const minNumber = Math.min(
+          Math.floor(window.innerWidth / baseWidth),
+          Math.floor(window.innerHeight / baseHeight),
+        );
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
         // config.devicePixelRatio = 1;
+        window.screen.addEventListener('orientationchange', function () {
+          console.log('The orientation of the screen is: ' + screen.orientation);
+        });
         config.matchWebGLToCanvasSize = false;
-        // canvas.style.width = 100 + 'vh';
-        // canvas.style.height = 100 + 'vw';
+        canvas.style.width = baseWidth * minNumber + 'px';
+        canvas.style.height = baseHeight * minNumber + 'px';
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+        const minNumber = Math.min(
+          Math.floor(window.innerWidth / baseWidth),
+          Math.floor(window.innerHeight / baseHeight),
+        );
         config.matchWebGLToCanvasSize = false;
-
+        canvas.style.width = baseWidth * minNumber + 'px';
+        canvas.style.height = baseHeight * minNumber + 'px';
         // canvas.style.height = window.innerHeight + 'px';
       }
 
