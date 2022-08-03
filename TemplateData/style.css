@@ -25,6 +25,33 @@
     width: 100vh !important;
   }
 }
+@media screen and (orientation: landscape) {
+  body {
+    position: relative;
+    overflow: hidden;
+    height: 100vh !important;
+    width: 100vw !important;
+  }
+  #unity-container {
+    transform: none;
+    transform-origin: none;
+    top: none;
+    left: none;
+    height: 100vh !important;
+    width: 100vw !important;
+  }
+  .canvas-box {
+    position: relative;
+    height: 100vh !important;
+    width: 100vw !important;
+  }
+  canvas {
+    position: absolute;
+    left: none;
+    height: 100vh !important;
+    width: 100vw !important;
+  }
+}
 body {
   padding: 0;
   margin: 0;
