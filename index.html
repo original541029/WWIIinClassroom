@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Unity WebGL Player | webgltest</title>
+    <title>Unity WebGL Player | World War II in Classroom</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico" />
     <link rel="stylesheet" href="TemplateData/style.css" />
     <link rel="manifest" href="https://original541029.github.io/WWll-0731/manifest.json" />
@@ -11,12 +11,10 @@
     <meta name="apple-mobile-web-app-status-bar" content="#00695c" />
     <meta name="theme-color" content="#00695c" />
   </head>
-
   <body>
     <div id="unity-container" class="unity-desktop">
       <div class="unity-box">
         <canvas id="unity-canvas" width="2160" height="1620"></canvas>
-
         <div id="unity-loading-bar">
           <div id="unity-logo"></div>
           <div id="unity-progress-bar-empty">
@@ -27,7 +25,7 @@
         <div id="unity-footer">
           <div id="unity-webgl-logo"></div>
           <div id="unity-fullscreen-button"></div>
-          <div id="unity-build-title">webgltest</div>
+          <div id="unity-build-title">World War II in Classroom</div>
         </div>
       </div>
     </div>
@@ -65,15 +63,15 @@
       }
 
       var buildUrl = 'Build';
-      var loaderUrl = buildUrl + '/web07.loader.js';
+      var loaderUrl = buildUrl + '/1110814 webgl version.loader.js';
       var config = {
-        dataUrl: buildUrl + '/web07.data.unityweb',
-        frameworkUrl: buildUrl + '/web07.framework.js.unityweb',
-        codeUrl: buildUrl + '/web07.wasm.unityweb',
+        dataUrl: buildUrl + '/1110814 webgl version.data.unityweb',
+        frameworkUrl: buildUrl + '/1110814 webgl version.framework.js.unityweb',
+        codeUrl: buildUrl + '/1110814 webgl version.wasm.unityweb',
         streamingAssetsUrl: 'StreamingAssets',
         companyName: 'DefaultCompany',
-        productName: 'webgltest',
-        productVersion: '1.1',
+        productName: 'World War II in Classroom',
+        productVersion: '1.2',
         showBanner: unityShowBanner,
       };
 
@@ -85,7 +83,6 @@
       // config.matchWebGLToCanvasSize = false;
       const baseWidth = 2160 / 12;
       const baseHeight = 1620 / 12;
-
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
 
@@ -102,6 +99,7 @@
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
         // config.devicePixelRatio = 1;
+
         config.matchWebGLToCanvasSize = false;
         unityBox.style.width = baseWidth * minNumber + 'px';
         unityBox.style.height = baseHeight * minNumber + 'px';
@@ -114,7 +112,6 @@
         config.matchWebGLToCanvasSize = false;
         unityBox.style.width = baseWidth * minNumber + 'px';
         unityBox.style.height = baseHeight * minNumber + 'px';
-        // canvas.style.height = window.innerHeight + 'px';
       }
 
       loadingBar.style.display = 'block';
