@@ -99,7 +99,6 @@
           'orientationchange',
           function () {
             location.reload();
-            onLoad();
           },
           false,
         );
@@ -118,22 +117,35 @@
 
       function onLoad() {
         script.onload = () => {
-          if (window.screen.orientation.type.includes('portrait')) {
-            unityShowBanner('請將手機轉橫向');
-          } else {
-            createUnityInstance(canvas, config, (progress) => {
-              progressBarFull.style.width = 100 * progress + '%';
+          unityShowBanner('請將手機轉橫向');
+          createUnityInstance(canvas, config, (progress) => {
+            progressBarFull.style.width = 100 * progress + '%';
+          })
+            .then((unityInstance) => {
+              loadingBar.style.display = 'none';
+              // fullscreenButton.onclick = () => {
+              //   unityInstance.SetFullscreen(1);
+              // };
             })
-              .then((unityInstance) => {
-                loadingBar.style.display = 'none';
-                // fullscreenButton.onclick = () => {
-                //   unityInstance.SetFullscreen(1);
-                // };
-              })
-              .catch((message) => {
-                alert(message);
-              });
-          }
+            .catch((message) => {
+              alert(message);
+            });
+          // if (window.screen.orientation.type.includes('portrait')) {
+          //   unityShowBanner('請將手機轉橫向');
+          // } else {
+          //   createUnityInstance(canvas, config, (progress) => {
+          //     progressBarFull.style.width = 100 * progress + '%';
+          //   })
+          //     .then((unityInstance) => {
+          //       loadingBar.style.display = 'none';
+          //       // fullscreenButton.onclick = () => {
+          //       //   unityInstance.SetFullscreen(1);
+          //       // };
+          //     })
+          //     .catch((message) => {
+          //       alert(message);
+          //     });
+          // }
         };
       }
 
