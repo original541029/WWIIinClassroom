@@ -118,7 +118,10 @@
 
       function onLoad() {
         script.onload = () => {
-          if (window.screen.orientation.type.includes('portrait')) {
+          if (
+            window.screen.orientation.type.includes('portrait') &&
+            /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+          ) {
             unityShowBanner('請將手機轉橫向');
           } else {
             createUnityInstance(canvas, config, (progress) => {
