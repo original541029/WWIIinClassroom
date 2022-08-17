@@ -117,13 +117,11 @@
       );
 
       function onLoad() {
-        script.onload = () => {
-          if (
-            window.screen.orientation.type.includes('portrait') &&
-            /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
-          ) {
-            unityShowBanner('請將手機轉橫向');
-          } else {
+        if (window.screen.orientation.type.includes('portrait')) {
+          unityShowBanner('請將手機轉橫向');
+          alert(1);
+        } else {
+          script.onload = () => {
             createUnityInstance(canvas, config, (progress) => {
               progressBarFull.style.width = 100 * progress + '%';
             })
@@ -136,8 +134,8 @@
               .catch((message) => {
                 alert(message);
               });
-          }
-        };
+          };
+        }
       }
 
       document.body.appendChild(script);
