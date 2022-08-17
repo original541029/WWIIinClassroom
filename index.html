@@ -106,12 +106,12 @@
 
       var script = document.createElement('script');
       script.src = loaderUrl;
-      this.onLoad();
+      onLoad();
       window.addEventListener(
         'orientationchange',
         function () {
           location.reload();
-          this.onLoad();
+          onLoad();
         },
         false,
       );
