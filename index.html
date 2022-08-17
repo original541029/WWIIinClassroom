@@ -95,9 +95,18 @@
         // config.devicePixelRatio = 1;
         canvas.style.width = window.innerWidth + 'px';
         canvas.style.height = 'auto';
+
+        if (window.innerHeight > window.innerWidth) {
+          unityShowBanner('請將手機轉橫向');
+        }
         window.addEventListener(
           'orientationchange',
           function () {
+            if (window.innerHeight > window.innerWidth) {
+              unityShowBanner('請將手機轉橫向');
+            } else {
+              onLoad();
+            }
             location.reload();
           },
           false,
@@ -113,11 +122,11 @@
 
       var script = document.createElement('script');
       script.src = loaderUrl;
-      onLoad();
-
+      if (window.innerHeight < window.innerWidth) {
+        onLoad();
+      }
       function onLoad() {
         script.onload = () => {
-          unityShowBanner('請將手機轉橫向');
           createUnityInstance(canvas, config, (progress) => {
             progressBarFull.style.width = 100 * progress + '%';
           })
