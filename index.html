@@ -95,6 +95,14 @@
         // config.devicePixelRatio = 1;
         canvas.style.width = window.innerWidth + 'px';
         canvas.style.height = 'auto';
+        window.addEventListener(
+          'orientationchange',
+          function () {
+            location.reload();
+            onLoad();
+          },
+          false,
+        );
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
@@ -107,21 +115,12 @@
       var script = document.createElement('script');
       script.src = loaderUrl;
       onLoad();
-      window.addEventListener(
-        'orientationchange',
-        function () {
-          location.reload();
-          onLoad();
-        },
-        false,
-      );
 
       function onLoad() {
-        if (window.screen.orientation.type.includes('portrait')) {
-          unityShowBanner('請將手機轉橫向');
-          alert(1);
-        } else {
-          script.onload = () => {
+        script.onload = () => {
+          if (window.screen.orientation.type.includes('portrait')) {
+            unityShowBanner('請將手機轉橫向');
+          } else {
             createUnityInstance(canvas, config, (progress) => {
               progressBarFull.style.width = 100 * progress + '%';
             })
@@ -134,8 +133,8 @@
               .catch((message) => {
                 alert(message);
               });
-          };
-        }
+          }
+        };
       }
 
       document.body.appendChild(script);
