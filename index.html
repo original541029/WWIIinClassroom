@@ -91,7 +91,7 @@
 
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
-        // config.matchWebGLToCanvasSize = false;
+        config.matchWebGLToCanvasSize = false;
         // config.devicePixelRatio = 1;
         canvas.style.width = 'auto';
         canvas.style.height = window.height + 'px';
@@ -104,9 +104,9 @@
           function () {
             if (window.innerHeight > window.innerWidth) {
               unityShowBanner('請將手機轉橫向');
-            } else {
-              onLoad();
             }
+            canvas.style.width = 'auto';
+            canvas.style.height = window.height + 'px';
             location.reload();
           },
           false,
