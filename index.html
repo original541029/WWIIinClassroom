@@ -65,11 +65,11 @@
       }
 
       var buildUrl = 'Build';
-      var loaderUrl = buildUrl + '/1110814 webgl version.loader.js';
+      var loaderUrl = buildUrl + '/0818-2 webgl version.loader.js';
       var config = {
-        dataUrl: buildUrl + '/1110814 webgl version.data.unityweb',
-        frameworkUrl: buildUrl + '/1110814 webgl version.framework.js.unityweb',
-        codeUrl: buildUrl + '/1110814 webgl version.wasm.unityweb',
+        dataUrl: buildUrl + '/0818-2 webgl version.data.unityweb',
+        frameworkUrl: buildUrl + '/0818-2 webgl version.framework.js.unityweb',
+        codeUrl: buildUrl + '/0818-2 webgl version.wasm.unityweb',
         streamingAssetsUrl: 'StreamingAssets',
         companyName: 'DefaultCompany',
         productName: 'World War II in Classroom',
@@ -96,7 +96,6 @@
 
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
-        //config.matchWebGLToCanvasSize = false;
         // config.devicePixelRatio = 1;
         canvas.style.width = 'auto';
         canvas.style.height = window.height + 'px';
@@ -131,6 +130,7 @@
 
       var script = document.createElement('script');
       script.src = loaderUrl;
+
       if (window.innerHeight < window.innerWidth) {
         warningBanner.style.display = 'none';
         loadingBar.style.display = 'block';
@@ -150,22 +150,6 @@
             .catch((message) => {
               alert(message);
             });
-          // if (window.screen.orientation.type.includes('portrait')) {
-          //   unityShowBanner('請將手機轉橫向');
-          // } else {
-          //   createUnityInstance(canvas, config, (progress) => {
-          //     progressBarFull.style.width = 100 * progress + '%';
-          //   })
-          //     .then((unityInstance) => {
-          //       loadingBar.style.display = 'none';
-          //       // fullscreenButton.onclick = () => {
-          //       //   unityInstance.SetFullscreen(1);
-          //       // };
-          //     })
-          //     .catch((message) => {
-          //       alert(message);
-          //     });
-          // }
         };
       }
 
