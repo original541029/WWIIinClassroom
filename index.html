@@ -20,7 +20,12 @@
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
-      <div id="unity-warning"></div>
+      <div id="unity-warning">
+        <div class="phone-box">
+          <div class="phone"></div>
+          <div class="message">Please rotate your device!</div>
+        </div>
+      </div>
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
@@ -97,7 +102,7 @@
         canvas.style.height = window.height + 'px';
 
         if (window.innerHeight > window.innerWidth) {
-          unityShowBanner('請將手機轉橫向');
+          unityShowBanner('');
         }
         window.addEventListener(
           'orientationchange',
@@ -118,11 +123,10 @@
         canvas.style.height = '100%';
       }
 
-      loadingBar.style.display = 'block';
-
       var script = document.createElement('script');
       script.src = loaderUrl;
       if (window.innerHeight < window.innerWidth) {
+        loadingBar.style.display = 'block';
         onLoad();
       }
       function onLoad() {
