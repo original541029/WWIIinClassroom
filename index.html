@@ -104,21 +104,27 @@
         if (window.innerHeight > window.innerWidth) {
           unityShowBanner('');
         }
+        if (window.innerHeight < window.innerWidth) {
+          warningBanner.style.display = 'none';
+        }
         window.addEventListener(
           'orientationchange',
           function () {
             if (window.innerHeight > window.innerWidth) {
-              unityShowBanner('請將手機轉橫向');
+              unityShowBanner();
             }
+            if (window.innerHeight < window.innerWidth) {
+              warningBanner.style.display = 'none';
+              loadingBar.style.display = 'block';
+            }
+            location.reload();
             canvas.style.width = 'auto';
             canvas.style.height = window.height + 'px';
-            location.reload();
           },
           false,
         );
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-
         canvas.style.width = '100%';
         canvas.style.height = '100%';
       }
@@ -126,6 +132,7 @@
       var script = document.createElement('script');
       script.src = loaderUrl;
       if (window.innerHeight < window.innerWidth) {
+        warningBanner.style.display = 'none';
         loadingBar.style.display = 'block';
         onLoad();
       }
