@@ -104,6 +104,7 @@
         canvas.style.height = window.height + 'px';
 
         if (window.innerHeight > window.innerWidth) {
+          warningBanner.style.display = 'none';
           unityShowBanner('');
         }
         if (window.innerHeight < window.innerWidth) {
@@ -113,6 +114,7 @@
           'orientationchange',
           function () {
             if (window.innerHeight > window.innerWidth) {
+              warningBanner.style.display = 'none';
               unityShowBanner();
             }
             if (window.innerHeight < window.innerWidth) {
