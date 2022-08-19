@@ -104,7 +104,6 @@
         canvas.style.height = window.height + 'px';
 
         if (window.innerHeight > window.innerWidth) {
-          loadingBar.style.display = 'none';
           unityShowBanner('');
         }
         if (window.innerHeight < window.innerWidth) {
@@ -114,7 +113,6 @@
           'orientationchange',
           function () {
             if (window.innerHeight > window.innerWidth) {
-              loadingBar.style.display = 'none';
               unityShowBanner();
             }
             if (window.innerHeight < window.innerWidth) {
@@ -129,12 +127,9 @@
         );
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-
         canvas.style.width = window.innerWidth + 'px';
         canvas.style.height = 'auto';
       }
-
-      loadingBar.style.display = 'block';
 
       var script = document.createElement('script');
       script.src = loaderUrl;
