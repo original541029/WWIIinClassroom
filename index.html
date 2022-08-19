@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="TemplateData/style.css" />
     <link
       rel="manifest"
-      href="https://original541029.github.io/WWIIinClassroom1110819/manifest.json"
+      href="https://original541029.github.io/WWIIinClassroom111081901/manifest.json"
     />
     <link rel="apple-touch-icon" href="TemplateData/unity-logo-dark.png" />
     <meta name="apple-mobile-web-app-status-bar" content="#00695c" />
@@ -68,11 +68,11 @@
       }
 
       var buildUrl = 'Build';
-      var loaderUrl = buildUrl + '/1110819 webgl version.loader.js';
+      var loaderUrl = buildUrl + '/1110819-2 webgl version.loader.js';
       var config = {
-        dataUrl: buildUrl + '/1110819 webgl version.data.unityweb',
-        frameworkUrl: buildUrl + '/1110819 webgl version.framework.js.unityweb',
-        codeUrl: buildUrl + '/1110819 webgl version.wasm.unityweb',
+        dataUrl: buildUrl + '/1110819-2 webgl version.data.unityweb',
+        frameworkUrl: buildUrl + '/1110819-2 webgl version.framework.js.unityweb',
+        codeUrl: buildUrl + '/1110819-2 webgl version.wasm.unityweb',
         streamingAssetsUrl: 'StreamingAssets',
         companyName: 'DefaultCompany',
         productName: 'World War II in Classroom',
@@ -128,9 +128,11 @@
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-        canvas.style.width = '100%';
-        canvas.style.height = '100%';
+        canvas.style.width = window.innerWidth + 'px';
+        canvas.style.height = 'auto';
       }
+
+      loadingBar.style.display = 'block';
 
       var script = document.createElement('script');
       script.src = loaderUrl;
