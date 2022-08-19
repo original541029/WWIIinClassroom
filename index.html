@@ -65,11 +65,11 @@
       }
 
       var buildUrl = 'Build';
-      var loaderUrl = buildUrl + '/0818-2 webgl version.loader.js';
+      var loaderUrl = buildUrl + '/1110819 webgl version.loader.js';
       var config = {
-        dataUrl: buildUrl + '/0818-2 webgl version.data.unityweb',
-        frameworkUrl: buildUrl + '/0818-2 webgl version.framework.js.unityweb',
-        codeUrl: buildUrl + '/0818-2 webgl version.wasm.unityweb',
+        dataUrl: buildUrl + '/1110819 webgl version.data.unityweb',
+        frameworkUrl: buildUrl + '/1110819 webgl version.framework.js.unityweb',
+        codeUrl: buildUrl + '/1110819 webgl version.wasm.unityweb',
         streamingAssetsUrl: 'StreamingAssets',
         companyName: 'DefaultCompany',
         productName: 'World War II in Classroom',
@@ -124,13 +124,13 @@
         );
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+
         canvas.style.width = '100%';
         canvas.style.height = '100%';
       }
 
       var script = document.createElement('script');
       script.src = loaderUrl;
-
       if (window.innerHeight < window.innerWidth) {
         warningBanner.style.display = 'none';
         loadingBar.style.display = 'block';
@@ -152,7 +152,6 @@
             });
         };
       }
-
       document.body.appendChild(script);
     </script>
   </body>
