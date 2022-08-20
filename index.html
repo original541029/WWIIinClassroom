@@ -105,22 +105,27 @@
         canvas.style.height = window.height + 'px';
 
         if (window.innerHeight > window.innerWidth) {
-          unityShowBanner('');
+          warningBanner.style.display = 'block';
+          loadingBar.style.display = 'none';
         }
         if (window.innerHeight < window.innerWidth) {
           warningBanner.style.display = 'none';
+          loadingBar.style.display = 'block';
         }
         window.addEventListener(
           'orientationchange',
           function () {
             if (window.innerHeight > window.innerWidth) {
-              unityShowBanner();
-            }
-            if (window.innerHeight < window.innerWidth) {
+              console.log(window.innerHeight);
               warningBanner.style.display = 'none';
               loadingBar.style.display = 'block';
             }
+            if (window.innerHeight < window.innerWidth) {
+              warningBanner.style.display = 'block';
+              loadingBar.style.display = 'none';
+            }
             location.reload();
+            canvas.style['max-width'] = '100vw';
             canvas.style.width = 'auto';
             canvas.style.height = window.height + 'px';
           },
